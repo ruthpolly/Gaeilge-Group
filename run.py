@@ -44,6 +44,18 @@ def start_quiz():
     
     ready_to_begin = input(f"OK {NAME}, are you ready to try it? (y/n):")
 
+    while ready_to_begin != "y":
+        enter_username()
+
+    if ready_to_begin == "y":
+        load_questions()
+
+
+def load_questions():
+    """
+    Runs through the questions
+    """
+
 
 def main():
     """
