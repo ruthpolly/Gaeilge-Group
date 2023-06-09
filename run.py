@@ -12,7 +12,36 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('gaeilge_group')
 
-results = SHEET.worksheet('results')
+NAME = ""
+SCORE = 0
 
-data = results.get_all_values()
-print(data)
+
+def enter_username():
+    """
+    Welcome message and asks user for username before beginning.
+    """
+    global NAME
+    NAME = input("Hello! Enter your name and click the enter key to begin:\n")
+    if NAME == "":
+        print("Name is required to begin.")
+        enter_username()
+    else:
+        start_quiz()	
+
+def start_quiz():
+    """
+    Provides instructions and loads quiz if user agrees, or else returns to 
+    name input.
+    """
+    print(f"Hello {NAME}! Welcome to the Gaeilge quiz, just do your best.")
+
+
+
+def main():
+    """
+    Runs all program functions
+    """
+    enter_username()
+    start_quiz()
+
+main()
