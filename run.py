@@ -23,7 +23,6 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('gaeilge_group')
 
 NAME = ""
-SCORE = 0
 
 quiz_questions = [
     {"question": "1. What does 'Go tobann! mean?",
@@ -148,7 +147,7 @@ def load_questions(quiz_questions):
             for key, value in answer['answers'].items():
                 print(f"{key}: {value}")
 
-            users_answer = input(colored("\nAnswer(a, b, c, d): \n", "blue"))
+            users_answer = input("\nAnswer(a, b, c, d): \n")
             users_answer = users_answer.lower()
 
         if users_answer == answer['correct_answer']:
@@ -168,17 +167,31 @@ def load_questions(quiz_questions):
     print(f"Congratulations {NAME}, you have finished the quiz!")
     print(f"You scored {score} out of 10")
     termcolor.cprint("Sending score to teacher...", "yellow")
-    score = NAME, score
-    update_worksheet(score)
+    first_score = NAME, score
 
 
-def update_worksheet(score):
+def update_worksheet(data, worksheet):
     """
     Updates google worksheet with users name and result
     """
-    score_sheet = SHEET.worksheet("scores")
-    score_sheet.append_row(score)
+    worksheet_to_update = SHEET.worksheet(worksheet)
+    worksheet_to_update.append_row(data)
+
     termcolor.cprint("Score sent to teacher.", "green")
+
+
+def calculate_projected_score(old_score_row):
+    """
+    Calculates projected score on completion of learning programme
+    """
+    last_score = SHEET.worksheet("scores").get_all_values()
+    last_row = last_score[-1]
+
+    future_score = []
+    for last_score, scores in zip(last_row, old_score_row):
+        future = int(last_row) * 1.5
+        future_score.append(future)
+    print(future_score)
 
 
 def main():
@@ -186,6 +199,9 @@ def main():
     Runs all program functions
     """
     enter_username()
+    update_worksheet(first_score, "scores")
+    future_score = calculate_projected_score(first_score)
+    update_worksheet(future_score, "projections")
 
 
 main()
