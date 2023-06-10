@@ -140,7 +140,13 @@ def load_questions(data):
 
         elif users_answer != answer['correct_answer']:
             print(f"That was not the right answer {NAME}")
-            print(f"The answer is {correct-answer}./n")
+            print(f"The answer is {correct_answer}\n")
+
+    print(f"Congratulations {NAME}, you have finished the quiz!")
+    print(f"You scored {score} out of 10")
+    print("Sending score to teacher...")
+    results = NAME, score
+    # update_worksheet(results)
 
 
 def main():
