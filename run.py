@@ -1,9 +1,14 @@
+"""
+Imports os to clear terminal to improve user experience
+Import time to pause before loading next section to give the user time to read
+Import gspread to track users and log scores, then make projections
+Import termcolor to add color to text to improve readability
+"""
 import os
-from os import system
+from time import sleep
 import gspread
 from google.oauth2.service_account import Credentials
 import termcolor
-from termcolor import colored, cprint
 
 
 SCOPE = [
@@ -118,13 +123,13 @@ def start_quiz():
 
     if ready_to_begin == "y":
         load_questions(quiz_questions)
-        
 
 
 def load_questions(quiz_questions):
     """
     Runs through the questions
     """
+    sleep(1)
     os.system('clear')
     score = 0
 
@@ -146,16 +151,18 @@ def load_questions(quiz_questions):
                              "green")
             score = score + 1
             print(f"Score: {score}")
+            # sleep(5)
             os.system('clear')
 
         elif users_answer != answer['correct_answer']:
             termcolor.cprint(f"That was not the right answer {NAME}", "red")
             print(f"The answer is {correct_answer}\n")
+            # sleep(5)
             os.system('clear')
 
     print(f"Congratulations {NAME}, you have finished the quiz!")
     print(f"You scored {score} out of 10")
-    print("Sending score to teacher...")
+    termcolor.cprint("Sending score to teacher...", "yellow")
     score = NAME, score
     update_worksheet(score)
 
@@ -166,7 +173,7 @@ def update_worksheet(score):
     """
     score_sheet = SHEET.worksheet("scores")
     score_sheet.append_row(score)
-    print("Score sent to teacher.")
+    termcolor.cprint("Score sent to teacher.", "green")
 
 
 def main():
