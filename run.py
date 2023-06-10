@@ -1,5 +1,9 @@
+import os
 import gspread
 from google.oauth2.service_account import Credentials
+import termcolor
+from termcolor import colored, cprint
+
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -87,7 +91,7 @@ def enter_username():
     global NAME
     NAME = input("Hello! Enter your name and click the enter key to begin:\n")
     if NAME == "":
-        print("Name is required to begin.")
+        termcolor.cprint("Name is required to begin.", "red")
         enter_username()
     else:
         start_quiz()
@@ -112,9 +116,10 @@ def start_quiz():
 
     if ready_to_begin == "y":
         load_questions(quiz_questions)
+        os.system('cls' if os.name == 'nt' else 'clear')
 
 
-def load_questions(data):
+def load_questions(quiz_questions):
     """
     Runs through the questions
     """
@@ -125,21 +130,22 @@ def load_questions(data):
         correct_answer = answer['correct_answer']
 
         while users_answer not in ['a', 'b', 'c', 'd']:
-            print(f"{answer['question']}\n")
+            termcolor.cprint(f"{answer['question']}\n", "cyan")
 
             for key, value in answer['answers'].items():
                 print(f"{key}: {value}")
 
-            users_answer = input("\nAnswer(a, b, c, d): \n")
+            users_answer = input(colored("\nAnswer(a, b, c, d): \n", "blue"))
             users_answer = users_answer.lower()
-        
+
         if users_answer == answer['correct_answer']:
-            print(f"\nWell done {NAME}! That is the right answer.\n")
+            termcolor.cprint(f"\nWell done {NAME}! That's the right answer.\n",
+                             "green")
             score = score + 1
             print(f"Score: {score}")
 
         elif users_answer != answer['correct_answer']:
-            print(f"That was not the right answer {NAME}")
+            termcolor.cprint(f"That was not the right answer {NAME}", "red")
             print(f"The answer is {correct_answer}\n")
 
     print(f"Congratulations {NAME}, you have finished the quiz!")
