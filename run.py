@@ -110,12 +110,17 @@ def start_quiz():
     """
     os.system('clear')
     print(f"Hello {NAME}! Welcome to the Gaeilge quiz, just do your best.\n")
+    sleep(2)
     print("This is a multiple choice quiz with 10 questions, and 4 answer"
-          " options. When you are ready to answer, you can enter either 'a',"
-          " 'b', 'c', or 'd' and click the enter key to submit your answer.\n"
-          "You will be asked at the end of each question if you would like "
-          "to proceed to the next question. Click 'y' and enter for yes, or"
-          " 'n' and enter for no.")
+          " options.\n")
+    sleep(2)
+    print("When you are ready to answer, you can enter either 'a', "
+          "'b', 'c', or 'd' and click the enter key to submit your answer.\n")
+    sleep(2)
+    print("You will be asked at the end of each question if you would like "
+          "to proceed to the next question.")
+    print("Click 'y' and enter for yes, 'n' and enter for no.\n")
+    sleep(2)
     ready_to_begin = input(f"OK {NAME}, are you ready to try it? (y/n):\n")
 
     while ready_to_begin != "y":
