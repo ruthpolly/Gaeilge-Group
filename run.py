@@ -145,8 +145,17 @@ def load_questions(data):
     print(f"Congratulations {NAME}, you have finished the quiz!")
     print(f"You scored {score} out of 10")
     print("Sending score to teacher...")
-    results = NAME, score
-    # update_worksheet(results)
+    score = NAME, score
+    update_worksheet(score)
+
+
+def update_worksheet(score):
+    """
+    Updates google worksheet with users name and result
+    """
+    score_sheet = SHEET.worksheet("scores")
+    score_sheet.append_row(score)
+    print("Score sent to teacher.")
 
 
 def main():
