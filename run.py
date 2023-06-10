@@ -1,4 +1,5 @@
 import os
+from os import system
 import gspread
 from google.oauth2.service_account import Credentials
 import termcolor
@@ -102,6 +103,7 @@ def start_quiz():
     Provides instructions and loads quiz if user agrees, or else returns to
     name input.
     """
+    os.system('clear')
     print(f"Hello {NAME}! Welcome to the Gaeilge quiz, just do your best.\n")
     print("This is a multiple choice quiz with 10 questions, and 4 answer"
           " options. When you are ready to answer, you can enter either 'a',"
@@ -116,13 +118,14 @@ def start_quiz():
 
     if ready_to_begin == "y":
         load_questions(quiz_questions)
-        os.system('cls' if os.name == 'nt' else 'clear')
+        
 
 
 def load_questions(quiz_questions):
     """
     Runs through the questions
     """
+    os.system('clear')
     score = 0
 
     for answer in quiz_questions:
@@ -143,10 +146,12 @@ def load_questions(quiz_questions):
                              "green")
             score = score + 1
             print(f"Score: {score}")
+            os.system('clear')
 
         elif users_answer != answer['correct_answer']:
             termcolor.cprint(f"That was not the right answer {NAME}", "red")
             print(f"The answer is {correct_answer}\n")
+            os.system('clear')
 
     print(f"Congratulations {NAME}, you have finished the quiz!")
     print(f"You scored {score} out of 10")
