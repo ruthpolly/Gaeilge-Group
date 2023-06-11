@@ -9,8 +9,6 @@ from time import sleep
 import gspread
 from google.oauth2.service_account import Credentials
 import termcolor
-import pandas as pd
-import pygsheets
 
 
 SCOPE = [
