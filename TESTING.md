@@ -92,9 +92,12 @@ Additional testing was taken by friends and family on a variety of browsers.
 
 | No | Bug | How I solved the issue |
 | :--- | :--- | :--- |
-| 1 | The projected score would not display on the projected worksheet | I had been trying to access the second colum of a second worksheet to input a calculated projection. It was easier and cleaner code to do the calculation after the final score, within the same function. Then append it to the list to be updated to the worksheet.  |
-| 2 | The quiz was skipping questions, I turned to tutor support for this and they suggested the event listener within the function was the issue. I texted this in Chrome Developer using the console log, it was not the issue. | I continued to test the issue using the console log and realised I had called the function to show a new phrase twice some how. After more testing, and no progress, I checked my html file and saw I had called it there also. So I just deleted it. Problem solved.|
-| 3 | The hover pseudo class was still applied to the buttons after clicking an option, the button diabled but it still transformed when hovered over, which could give the user the impression it was still possible to click. | Having looked on stack overflow, the best option seemed to be to add a new class in js when the button was clicked, and remove the hover effect. I felt this made the quix more static and less interactive. I checked for the rgba values of the disabled buttons in chrome developer and changed them slightly, so there would still be an effect when hovering over the buttons. |
+| 1 | The projected score would not display on the projected worksheet | I had been trying to access the second colum of a second worksheet to input a calculated projection. It was easier and cleaner code to do the calculation after the final score, within the same function. Then append it to the list to be updated to the worksheet. |
+| 2 | The validation was only working if the input was submitted when blank | I searched on stack overflow and found I could use the isspace, isalpha to further the validation. |
+| 3 | The terminal was getting congested with text when running the quiz. | My mentor suggested using the os system to clear the terminal at intervals. |
+| 4 | When I used the os system to clear the terminal, the terminal cleared before the user would get to read the feedback | I found on Stack Overflow that I could use the time module to slow down the clear function |
+| 5 | The terminal had quite a bit of text, and it being all white it can be difficult for some people to read. | Stack Overflow suggested using colour to distinguish/emphasise text. I used termcolor to break up the text to make it easier to read |
+
 
 - - -
 
