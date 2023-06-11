@@ -109,6 +109,10 @@ Termcolor was import and used to add some colour to the quiz. This was solely fo
 
 ![Final-feedback](/assets/documentation/result-and-feedback.png)
 
+- The worksheet updates with the user name, score and projected score
+
+![Google Sheet](/assets/documentation/worksheet-updated.png)
+
 ### Accessibility
 
 It is important to make websites as accessible as possible. This was achieved by:
