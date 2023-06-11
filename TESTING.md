@@ -1,8 +1,8 @@
-# Title -  Testing
+# Gaeilge Group -  Testing
 
-![Title](filepath)
+![Gaeilge Group](/assets/documentation/am-i-responsive.png)
 
-Visit the deployed site: [Title](filepath)
+Visit the deployed site: [Gaeilge Group](https://gaeilgegroup.herokuapp.com/)
 
 - - -
 
@@ -18,7 +18,7 @@ Visit the deployed site: [Title](filepath)
   * [Solved Bugs](#solved-bugs)
   * [Known Bugs](#known-bugs)
 
-Testing was ongoing throughout the build. Printing to the console was used to make sure everything was functioning correctly and to help troubleshooting when something went wrong, and to test functions along the way.
+Testing was ongoing throughout the build. Printing to the terminal was used to make sure everything was functioning correctly and to help troubleshooting when something went wrong, and to test functions along the way.
 
 - - -
 
@@ -26,22 +26,10 @@ Testing was ongoing throughout the build. Printing to the console was used to ma
 
 ### PEP8 Validator
 
-[PEP8](link) was used to validate the code. 
+[PEP8](https://pep8ci.herokuapp.com/) was used to validate the code. 
 
-* [Results](filepath) - No errors or warnings.
-- - -
+* [Results](/assets/documentation/pep8-validation.png) - No errors or warnings.
 
-### Lighthouse
-
-I used Lighthouse within the Chrome Developer Tools to test the performance, accessibility, best practices and SEO of the website. 
-
-### Desktop Results
-
-* [Index Page](/documentation/lighthouse-desktop-home.png)
-
-### Mobile Results
-
-* [Index Page](/documentation/lighthouse-mobile-home.png)
 - - -
 
 ## MANUAL TESTING
@@ -53,12 +41,11 @@ I used Lighthouse within the Chrome Developer Tools to test the performance, acc
 | `First Time Visitors` |
 |  |  |  |
 | Understand what the site is for and how to navigate the site. | Instructions on how to play the game are displayed. |  |
-| Submit a username. |  |
-| Play a quiz | Users get to take part in a quiz to learn about Irish phrases. |  |
+| Submit a username. | Users are asked to submit a username when the program runs |
+| Play a quiz | Users play the quiz to asses level of skill for self development and for teachers assessment. |  |
 |`Returning Visitors`|
 |  |  |  |
-| Play a quiz | Find new quizes/games |  |
-| Learn more about other cultures slang/phrases | When playing the quiz the user will learn the correct answer. |  |
+| Play a quiz | Track improvement/learning by comparing score |  |
 
 - - -
 
@@ -68,29 +55,28 @@ Full testing was performed on the following devices:
 
 * Laptop:
   * HP laptop
-* Mobile Devices:
-  * iPhone 13.
-  * iPhone 11.
-  * Samsung devices.
 
 Each device tested the site using the following browsers:
 
 * Google Chrome
-* Safari
 * Firefox
 
-Additional testing was taken by friends and family on a variety of devices and screen sizes. 
+Additional testing was taken by friends and family on a variety of browsers.
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
 | `Start` |
 |   |   |   |   |
 | Username field | User should be able to enter username. | Enter username  | Username entered | Pass |
-| Username field | User should not be able to continue without entering username. | Click return key with input blank  | Message tells user input cannot be blank | Fail |
-| Start quiz | When button is clicked the user will be redirected to the quiz. | Clicked Start Quiz | Redirected to quiz | Pass |
+| Username field | User should not be able to continue without entering username. | Click return key with input blank  | Message tells user name is required | Pass |
+| Username field | User should not be able to enter white space and continue | Entered white space and clicked return | Requested to enter a username | Pass |
+| Username field | User should not be able to enter special characters/numbers | Entered special character/number and clicked return | Requested to enter a username | Pass |
+| Start Quiz | User should not be able to continue without entering 'y''. | Click return key with input blank  | Message reminds user 'y' is needed to continue | Pass |
+| Start Quiz | User should not be able to enter white space and continue | Entered white space and clicked return | Requested to enter 'y' to continue | Pass |
+| Start Quiz | User should not be able to enter special characters/numbers | Entered special character/number and clicked return | Requested to enter 'y' to continue | Pass |
 | `Quiz` |
 | Select Correct Answer | When correct key is entered, congratulations message should load | Correct answer entered | Message loaded | Pass |
-| Select correct answer | When correct option is clicked, button clicked should turn green | Clicked correct answer | Field turns green |  Pass |
+| Select correct answer | When correct answer chosen, score should increment | Clicked correct answer | Score increments |  Pass |
 | Select incorrect answer | When incorrect option clicked, button clicked should turn red, and correct green. | Clicked incorrect answer | Button clicked turned red and correct answer button turned green | Pass |
 | Next button | Next question should appear | Next button clicked | Next question appears | Pass |
 | Home button | User will be redirected to home page | Home button clicked | Redirected to the home page | Pass |
