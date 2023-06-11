@@ -119,9 +119,9 @@ def start_quiz():
     print("You will be asked at the end of each question if you would like "
           "to proceed to the next question.")
     print("Click 'y' and enter for yes, 'n' and enter for no.\n")
-    sleep(2)
     ready_to_begin = input(f"OK {NAME}, are you ready to try it? (y/n):\n")
 
+    #validates input to start quiz or return to username input
     while ready_to_begin != "y":
         enter_username()
 
@@ -136,11 +136,11 @@ def load_questions(quiz_questions):
     sleep(1)
     os.system('clear')
     score = 0
-
+    #Loops through quiz dictionary
     for answer in quiz_questions:
         users_answer = ""
         correct_answer = answer['correct_answer']
-
+        #loops though question until user inputs approved letter
         while users_answer not in ['a', 'b', 'c', 'd']:
             termcolor.cprint(f"{answer['question']}\n", "cyan")
 
@@ -153,21 +153,23 @@ def load_questions(quiz_questions):
         if users_answer == answer['correct_answer']:
             termcolor.cprint(f"\nWell done {NAME}! That's the right answer.\n",
                              "green")
+            #increments score
             score = score + 1
             print(f"Score: {score}")
-            # sleep(5)
+            sleep(4)
             os.system('clear')
 
         elif users_answer != answer['correct_answer']:
             termcolor.cprint(f"That was not the right answer {NAME}", "red")
             print(f"The answer is {correct_answer}\n")
-            # sleep(5)
+            sleep(4)
             os.system('clear')
 
     print(f"Congratulations {NAME}, you have finished the quiz!")
     print(f"You scored {score} out of 10")
     termcolor.cprint("Sending score to teacher...", "yellow")
     result = NAME, score
+    #calls function to update google sheet
     update_scores_worksheet(result)
 
 
@@ -189,7 +191,7 @@ def get_last_score():
     last_score = SHEET.worksheet("projections").get_all_values()
     last_row = last_score[-1]
 
-    calculation = int(last_row[1]) *1.5
+    calculation = int(last_row[1]) * 1.5
     projected_score.append(calculation)
 
     update_projections_worksheet(projected_score)
@@ -198,11 +200,10 @@ def get_last_score():
 
 def update_projections_worksheet(projected_score):
     """
-    Updates google worksheet with users name and result
+    Updates google worksheet with users projected score
     """
     scores_worksheet = SHEET.worksheet("projections")
     scores_worksheet.append_row(projected_score)
-
 
 
 def main():
