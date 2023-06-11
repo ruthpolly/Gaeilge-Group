@@ -169,13 +169,13 @@ def load_questions(quiz_questions):
             # increments score
             score = score + 1
             print(f"Score: {score}")
-            # sleep(4)
+            sleep(4)
             os.system('clear')
 
         elif users_answer != answer['correct_answer']:
             termcolor.cprint(f"That was not the right answer {NAME}", "red")
             print(f"The answer is {correct_answer}\n")
-            # sleep(4)
+            sleep(4)
             os.system('clear')
 
     print(f"Congratulations {NAME}, you have finished the quiz!")
