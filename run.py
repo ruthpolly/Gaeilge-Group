@@ -9,6 +9,8 @@ from time import sleep
 import gspread
 from google.oauth2.service_account import Credentials
 import termcolor
+import pandas as pd
+import pygsheets
 
 
 SCOPE = [
@@ -179,9 +181,16 @@ def load_questions(quiz_questions):
             os.system('clear')
 
     print(f"Congratulations {NAME}, you have finished the quiz!")
-    print(f"You scored {score} out of 10")
     termcolor.cprint("Sending score to teacher...", "yellow")
-    result = NAME, score
+    print("Your final score was ")
+    termcolor.cprint(f"{score} out of 10.", "cyan")
+    # calculates projected score
+    calculation = score * 1.5
+    # ensures projected score is capped at 10
+    calculation = min(calculation, 10)
+    print("Your projected score when you finish learning is:")
+    termcolor.cprint(f"{calculation} out of 10!", "cyan")
+    result = NAME, score, calculation
     # calls function to update google sheet
     update_scores_worksheet(result)
 
@@ -196,35 +205,12 @@ def update_scores_worksheet(result):
     termcolor.cprint("Score sent to teacher.", "green")
 
 
-def get_last_score():
-    """
-    Gets scores from quiz
-    """
-    projected_score = []
-    last_score = SHEET.worksheet("projections").get_all_values()
-    last_row = last_score[-1]
-
-    calculation = int(last_row[1]) * 1.5
-    projected_score.append(calculation)
-
-    update_projections_worksheet(projected_score)
-    print("Projected score calculated")
-
-
-def update_projections_worksheet(projected_score):
-    """
-    Updates google worksheet with users projected score
-    """
-    scores_worksheet = SHEET.worksheet("projections")
-    scores_worksheet.append_row(projected_score)
-
-
 def main():
     """
     Runs all program functions
     """
     enter_username()
-    get_last_score()
+    # get_last_score()
 
 
 main()
