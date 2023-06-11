@@ -1,10 +1,10 @@
-# Title
+# Gaeilge Group
 
-Description
+The Gaeilge Group is an Irish speaking group with the intention of improving their quality of Irish. It is not so much a casual speaking group, but with tests to gauage how much their skill has improved. This quiz was designed to assess the members level of Irish when they join, and project their expected score after a a short course has been completed.
 
-![Range of devices image](filepath)
+![Range of devices image](/assets/documentation/am-i-responsive.png)
 
-[website on Github Pages](filepath)
+[Website deployed on Heroku](https://gaeilgegroup.herokuapp.com/)
 
 ## CONTENTS
 
