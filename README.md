@@ -136,16 +136,12 @@ Github - To save and store the files for the website.
 
 Heroku - For deployment.
 
-PEP8 - To troubleshoot and test features, solve
+[PEP8](/assets/documentation/pep8-validation.png) - To validate my code
 
 Stack Overflow 
 - [Validation for text input](https://stackoverflow.com/questions/74211093/trying-to-validate-a-text-input-so-it-allows-characters-in-the-alphabet-only-as)
 - [Validation for whitespace](https://stackoverflow.com/questions/9895775/how-to-check-for-white-space-input-in-python)
 - [Termcolor and time](https://stackoverflow.com/questions/55958822/how-do-i-type-one-letter-at-a-time-for-an-input-in-python)
-
-[PEP8](/assets/documentation/pep8-validation.png)
-
-
 
 - - -
 
@@ -155,12 +151,12 @@ Stack Overflow
 
 Heroku was used to deploy the website. The instructions to achieve this are:
 
-1. 
-2. 
-3. 
-4. 
-5. 
-6. 
+1. Navigate to Heroku Account dashboard
+2. Choose create new app
+3. Name app and create it
+4. Navigate to settings and add config vars
+5. Add buildpacks necessary
+6. Deploy app
 
 ### Testing
 - All testing can be found in this file:
