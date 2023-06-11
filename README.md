@@ -105,13 +105,18 @@ Termcolor was import and used to add some colour to the quiz. This was solely fo
 ![Correct-Question-Feedback](/assets/documentation/correct-answer-feedback.png)
 ![Incorrect-Answer-Feedback](/assets//documentation/incorrect-answer-feedback.png)
 
+- When the quiz is finished, the user is told that the score is being sent to the teacher. They are given their score, and the score they should achieve soon when they ahev finished learning.
+
+![Final-feedback](/assets/documentation/result-and-feedback.png)
+
 ### Accessibility
 
 It is important to make websites as accessible as possible. This was achieved by:
 
 - Using semantic code.
-- 
-- Ensuring that there is a good colour contrast on the site.
+- Giving regular feedback to the user, especially if they are using the quiz incorrectly
+- Using coloured text to improve readability
+- Using sleep timers to improve readability
 
 - - -
 
@@ -131,13 +136,16 @@ Github - To save and store the files for the website.
 
 Heroku - For deployment.
 
-PEP8 - To troubleshoot and test features, solve ....
+PEP8 - To troubleshoot and test features, solve
+
+Stack Overflow 
+- [Validation for text input](https://stackoverflow.com/questions/74211093/trying-to-validate-a-text-input-so-it-allows-characters-in-the-alphabet-only-as)
+- [Validation for whitespace](https://stackoverflow.com/questions/9895775/how-to-check-for-white-space-input-in-python)
+- [Termcolor and time](https://stackoverflow.com/questions/55958822/how-do-i-type-one-letter-at-a-time-for-an-input-in-python)
+
+[PEP8](/assets/documentation/pep8-validation.png)
 
 
-
-[PEP8](filepath) ...
-
-[Title](filepath) video/tutorials.
 
 - - -
 
@@ -153,20 +161,6 @@ Heroku was used to deploy the website. The instructions to achieve this are:
 4. 
 5. 
 6. 
-
-### Local Development
-
-### Testing User Stories
-
-- First Time Visitors
-  - 
-
-  ![aaa](filepath)
-  ![bbb](filepath)
-  ![ccc](filepath)
-
-- Returning Visitors
-  - ...
 
 ### Testing
 - All testing can be found in this file:
