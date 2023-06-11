@@ -168,41 +168,41 @@ def load_questions(quiz_questions):
     print(f"You scored {score} out of 10")
     termcolor.cprint("Sending score to teacher...", "yellow")
     result = NAME, score
+    update_scores_worksheet(result)
 
 
-def update_worksheet(data, worksheet):
+def update_scores_worksheet(result):
     """
     Updates google worksheet with users name and result
     """
-    worksheet_to_update = SHEET.worksheet(worksheet)
-    worksheet_to_update.append_row(data)
+    scores_worksheet = SHEET.worksheet("scores")
+    scores_worksheet.append_row(result)
 
     termcolor.cprint("Score sent to teacher.", "green")
 
 
-def get_first_score():
+def get_last_score():
     """
     Gets scores from quiz
     """
-    scores = SHEET.worksheet("scores")
+    projected_score = []
+    last_score = SHEET.worksheet("projections").get_all_values()
+    last_row = last_score[-1]
 
-    last_score = SHEET.worksheet("scores").get_all_values()
-    last_cell = last_score[-1]
-    print(last_cell)
+    calculation = int(last_row[1]) *1.5
+    projected_score.append(calculation)
 
-get_first_score()
+    update_projections_worksheet(projected_score)
+    print("Projected score calculated")
 
-# def calculate_projected_score(data):
-#     """
-#     Calculates projected score on completion of learning programme
-#     """
-    
 
-#     future_score = []
-#     for last_row in data:
-#         future = int(last_row) * 1.5
-#         future_score.append(future)
-#     print(future_score)
+def update_projections_worksheet(projected_score):
+    """
+    Updates google worksheet with users name and result
+    """
+    scores_worksheet = SHEET.worksheet("projections")
+    scores_worksheet.append_row(projected_score)
+
 
 
 def main():
@@ -210,9 +210,7 @@ def main():
     Runs all program functions
     """
     enter_username()
-    # update_worksheet(result, "scores")
-    # future_score = calculate_projected_score(first_score)
-    # update_worksheet(future_score, "projections")
+    get_last_score()
 
 
 main()
