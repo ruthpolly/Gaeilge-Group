@@ -95,8 +95,17 @@ def enter_username():
     """
     global NAME
     NAME = input("Hello! Enter your name and click the enter key to begin:\n")
+
     if NAME == "":
         termcolor.cprint("Name is required to begin.", "red")
+        enter_username()
+    elif NAME.isspace() is True:
+        termcolor.cprint("Name is required to begin. You have only entered"
+                         " whitespace", "red")
+        enter_username()
+    elif NAME.isalpha() is False:
+        termcolor.cprint("Name is required to begin. You must use letters",
+                         "red")
         enter_username()
     else:
         start_quiz()
@@ -121,12 +130,15 @@ def start_quiz():
     print("Click 'y' and enter for yes, 'n' and enter for no.\n")
     ready_to_begin = input(f"OK {NAME}, are you ready to try it? (y/n):\n")
 
-    #validates input to start quiz or return to username input
-    while ready_to_begin != "y":
-        enter_username()
-
-    if ready_to_begin == "y":
-        load_questions(quiz_questions)
+    # validates input to start quiz or return to username input
+    while True:
+        if ready_to_begin != "y":
+            termcolor.cprint("You must enter 'y' to begin. Please try again.",
+                             "red")
+            ready_to_begin = input(f"{NAME}, are you ready? (y/n):\n")
+        elif ready_to_begin == "y":
+            load_questions(quiz_questions)
+            break
 
 
 def load_questions(quiz_questions):
@@ -136,12 +148,14 @@ def load_questions(quiz_questions):
     sleep(1)
     os.system('clear')
     score = 0
-    #Loops through quiz dictionary
+    # Loops through quiz dictionary
     for answer in quiz_questions:
         users_answer = ""
         correct_answer = answer['correct_answer']
-        #loops though question until user inputs approved letter
+        # loops though question until user inputs approved letter
         while users_answer not in ['a', 'b', 'c', 'd']:
+            termcolor.cprint("Please enter a letter from the list of options",
+                             "red")
             termcolor.cprint(f"{answer['question']}\n", "cyan")
 
             for key, value in answer['answers'].items():
@@ -149,27 +163,26 @@ def load_questions(quiz_questions):
 
             users_answer = input("\nAnswer(a, b, c, d): \n")
             users_answer = users_answer.lower()
-
         if users_answer == answer['correct_answer']:
             termcolor.cprint(f"\nWell done {NAME}! That's the right answer.\n",
                              "green")
-            #increments score
+            # increments score
             score = score + 1
             print(f"Score: {score}")
-            sleep(4)
+            # sleep(4)
             os.system('clear')
 
         elif users_answer != answer['correct_answer']:
             termcolor.cprint(f"That was not the right answer {NAME}", "red")
             print(f"The answer is {correct_answer}\n")
-            sleep(4)
+            # sleep(4)
             os.system('clear')
 
     print(f"Congratulations {NAME}, you have finished the quiz!")
     print(f"You scored {score} out of 10")
     termcolor.cprint("Sending score to teacher...", "yellow")
     result = NAME, score
-    #calls function to update google sheet
+    # calls function to update google sheet
     update_scores_worksheet(result)
 
 
