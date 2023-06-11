@@ -105,6 +105,5 @@ Additional testing was taken by friends and family on a variety of browsers.
 
 | No | Bug | |
 | :--- | :--- | :--- |
-| 1 | When viewing on a mobile, the selected answer in the quiz does not turn green/red when selected. This could probably be resolved with a media query however due to time restraints I did not explore this | |
-| 2 | The user can skip questions without selecting an answer, this is not so much a bug but something I had planned on implementing, but again due to time restaints I did not explore the option. |
-| 3 | The username is not required as it was intended to be. I was advised on slack that I would need to validate it manually through Javascript but after about half an hour I decided to give up on it as I did not have the time to spend ensuring it worked. |
+| 1 | Users can reuse user names. This would make it difficult for the assessor to distinguish between students. | |
+| 2 | Students cannot access their previous scores |

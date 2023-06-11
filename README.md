@@ -162,6 +162,10 @@ Heroku was used to deploy the website. The instructions to achieve this are:
 - All testing can be found in this file:
 ![Testing](/TESTING.md)
 
+### Future Implementations
+- Further validation for the name field, e.g. if a user name has already been used, the new user would be prompted to add the initish of their last name to their username. This would help the teacher to distinguish between users
+- Add option for user to return to see their previous score. This would have been beyond the scope of my capabilities at this time. I did not want to have a high score section as it would not be best practice in this case for students to see eachothers scores. 
+
 - - -
 
 ## Credits
