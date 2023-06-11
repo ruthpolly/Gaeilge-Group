@@ -116,6 +116,7 @@ def start_quiz():
     Provides instructions and loads quiz if user agrees, or else returns to
     name input.
     """
+    # Provides instructions to user
     os.system('clear')
     print(f"Hello {NAME}! Welcome to the Gaeilge quiz, just do your best.\n")
     sleep(2)
@@ -128,6 +129,7 @@ def start_quiz():
     print("You will be asked at the end of each question if you would like "
           "to proceed to the next question.")
     print("Click 'y' and enter for yes, 'n' and enter for no.\n")
+    # Prompts user to input username
     ready_to_begin = input(f"OK {NAME}, are you ready to try it? (y/n):\n")
 
     # validates input to start quiz or return to username input
@@ -152,7 +154,7 @@ def load_questions(quiz_questions):
     for answer in quiz_questions:
         users_answer = ""
         correct_answer = answer['correct_answer']
-        # loops though question until user inputs approved letter
+        # loops through question and validates input
         while users_answer not in ['a', 'b', 'c', 'd']:
             termcolor.cprint("Please enter a letter from the list of options",
                              "red")
@@ -164,7 +166,7 @@ def load_questions(quiz_questions):
             users_answer = input("\nAnswer(a, b, c, d): \n")
             users_answer = users_answer.lower()
         if users_answer == answer['correct_answer']:
-            termcolor.cprint(f"\nWell done {NAME}! That's the right answer.\n",
+            termcolor.cprint(f"\nWell done {NAME} that's the right answer.\n",
                              "green")
             # increments score
             score = score + 1
@@ -208,7 +210,6 @@ def main():
     Runs all program functions
     """
     enter_username()
-    # get_last_score()
 
 
 main()
