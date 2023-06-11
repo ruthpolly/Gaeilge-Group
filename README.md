@@ -170,9 +170,8 @@ Heroku was used to deploy the website. The instructions to achieve this are:
 
 Content for the website was written Ruth O Sullivan.
 Guidance/tutorials on how to achieve this site was found on the following websites/videos
--[aaa](filepath)
--[bbb](filepath)
-I also searched on slack and stack overflow for any issues I came across and found almost all solutions there.
+- [Termcolor](https://pypi.org/project/termcolor/)
+- [Time](https://www.programiz.com/python-programming/time)
 
 ### Acknowledgments
 
@@ -181,3 +180,4 @@ I would like to acknowledge the following people who helped me along the way in 
 - The Code Institute Slack Community for constant support and guidance.
 - [Jubril Akolade](https://github.com/Jubrillionaire), my Code Institute Mentor, for his advice, and endless patience.
 - Alan Bushell, our cohort facilitator for his guidance along the way.
+- The other people in my cohort for company, advice and support.
