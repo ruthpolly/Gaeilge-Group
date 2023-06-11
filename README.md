@@ -43,42 +43,32 @@ The Gaeilge Group is an Irish speaking group with the intention of improving the
 
 ### Initial Discussion
 
-Website description
-
-#### Key information for the site
-
-- 
--  
--  
-- 
-
+The site is for members of the Gaeilge Group in order to asses their level of Irish before joining the group, to monitor their progress and project their expected score after a few weeks of learning. The site updates a google sheet the teacher has access to so the scores can be monitored.
 
 ### User Stories
 
 #### Client Goals
 
-- 
-- 
-- 
+- For users to be able to navigate the quiz
+- Users can easily answer questions and understand instructions
+- User names and scores are tracked in a google sheet
+- Projected scores are calculated and communicated to user and teacher
 
 
 #### First Time Visitor Goals
 
-- 
-- 
-- 
+- Easily understand what the quiz contains
+- Easily understand how the quiz works
+- Receive feedback if incorrect key was used
+- Receive feedback if incorrect answer was selected
+- Receive feedback on completion of the quiz, get final score
 
 #### Returning Visitor Goals
 
-- 
-- 
-- 
-
-#### Frequent Visitor Goals
-
-- 
-- 
-- 
+- Easily retake the quiz
+- Easily understand and follow instructions of the quiz
+- Receive feedback if incorrect key was used
+- Receive feedback for incorrect answers
 
 - - -
 
@@ -86,37 +76,34 @@ Website description
 
 ### Colour Scheme
 
-![Colour Palette]
-
-The website uses bright colours that are contrasting for accessibility. The palette was designed by using the [Coolors](https://coolors.co/) website.
-
-### Typography
-
-- 
-- 
-- 
+Termcolor was import and used to add some colour to the quiz. This was solely for readability and to highligh important messages to the user. Red is used to communicate a mistake or an incorrect answer. Green is used to cmmunicate a correct answer and when the scores are sent to the teacher successfully.
 
 ### Flow Chart
 
-- 
+- LucidChart was used to create a flow chart to plan the project. 
 
 [Flow Chart](filepath)
 
-### Features
+## Structure
 
-description 
+### Stages
 
-- Home Page.
-  - 
-  - 
+- The first section is welcoming the user to the quiz and requesting a username. This is validated so that no whitespace, special characters or digits can be entered.
 
-- Games page.
-  - 
-  - 
+![Username Entry](/assets/documentation/username-entry.png)
 
-  
-- Future Implementations.
-  - 
+- The next section gives the user information and instructions on how many questions/answers there are and how to answer the questions.
+
+![Instructions Section](/assets//documentation/instructions-section.png)
+
+- When the user proceeds with the quiz, the terminal clears and the first question is loaded.
+
+![Questions](/assets//documentation/questions.png)
+
+- If the user gets a question correct or incorrect, they are given feedback.
+
+![Correct-Question-Feedback](/assets/documentation/correct-answer-feedback.png)
+![Incorrect-Answer-Feedback](/assets//documentation/incorrect-answer-feedback.png)
 
 ### Accessibility
 
